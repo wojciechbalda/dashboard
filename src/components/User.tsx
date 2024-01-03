@@ -83,7 +83,7 @@ const User = () => {
             },
           ]
         >(
-          `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${import.meta.env.VITE_WEATHER_API_KEY}&q=${location}`,
+          `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${import.meta.env.VITE_WEATHER_API_KEY}&q=${location}`,
         );
         const {
           Key: locationKey,
