@@ -1,13 +1,7 @@
 import styled from "styled-components";
-import { AiFillHome } from "react-icons/ai";
-import { LuListTodo } from "react-icons/lu";
-import { BsNewspaper } from "react-icons/bs";
-import { BsGraphUpArrow } from "react-icons/bs";
-import { BsCoin } from "react-icons/bs";
-import { LuSettings } from "react-icons/lu";
 
 const Navigation = styled.nav`
-  width: 100vw;
+  width: 100%;
   position: fixed;
   bottom: 0;
 `;
@@ -34,29 +28,23 @@ const MenuItem = styled.li`
   }
 `;
 
-const MobileNavigation = () => {
+type MobileNavigationProps = {
+  tabs: {
+    el: JSX.Element;
+    icon: JSX.Element;
+  }[];
+  onChangeTab: React.Dispatch<React.SetStateAction<JSX.Element[]>>;
+};
+
+const MobileNavigation = ({ tabs, onChangeTab }: MobileNavigationProps) => {
   return (
     <Navigation>
-      &nbsp;
       <Menu>
-        <MenuItem>
-          <AiFillHome />
-        </MenuItem>
-        <MenuItem>
-          <LuListTodo />
-        </MenuItem>
-        <MenuItem>
-          <BsNewspaper />
-        </MenuItem>
-        <MenuItem>
-          <BsGraphUpArrow />
-        </MenuItem>
-        <MenuItem>
-          <BsCoin />
-        </MenuItem>
-        <MenuItem>
-          <LuSettings />
-        </MenuItem>
+        {tabs.map((tab, i) => (
+          <MenuItem key={i} onClick={() => onChangeTab([tab.el])}>
+            {tab.icon}
+          </MenuItem>
+        ))}
       </Menu>
     </Navigation>
   );
