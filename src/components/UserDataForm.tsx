@@ -55,7 +55,7 @@ const UserDataForm = ({ onSubmit }: UserDataFormProps) => {
 
     try {
       const { data } = await axios<[{ Key: number; EnglishName: string }]>(
-        `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${import.meta.env.VITE_WEATHER_API_KEY}&q=${locationInput.current?.value}`,
+        `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${import.meta.env.VITE_WEATHER_API_KEY}&q=${locationInput.current?.value}`,
       );
       if (!data.length) {
         setLocationError("Location does not exist");
