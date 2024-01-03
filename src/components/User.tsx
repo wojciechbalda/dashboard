@@ -92,7 +92,7 @@ const User = () => {
         const {
           data: [weatherData],
         } = await axios<[WeatherData]>(
-          `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${import.meta.env.VITE_WEATHER_API_KEY}&details=true`,
+          `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${import.meta.env.VITE_WEATHER_API_KEY}&details=true`,
         );
         setWeather({ ...weatherData, country });
       } catch (error) {
